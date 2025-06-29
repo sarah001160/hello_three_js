@@ -19,7 +19,7 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.z = 3
 
 function init() {
-  renderer = new THREE.WebGLRenderer({ antialias: true })
+  renderer = new THREE.WebGLRenderer({ antialias: true}); // 建立 WebGL 渲染器，開啟抗鋸齒功能，看起來平滑
   renderer.setSize(window.innerWidth, window.innerHeight)
   container.value.appendChild(renderer.domElement)
 
