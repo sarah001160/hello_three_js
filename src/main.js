@@ -1,6 +1,15 @@
+import './style.css' //總樣式
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
-import './style.css'
+import App from './App.vue';
+import router from './router';
 
-import { init } from './app.js'
+const app = createApp(App);
 
-init();
+app.use(createPinia()).use(router); //鏈式寫法
+//也可以分開寫
+// app.use(createPinia());
+// app.use(router);
+
+app.mount('#app');
