@@ -41,3 +41,12 @@ my-threejs-project/
 └── index.html
 
 ```
+
+
+## 認識 THREE JS
+待研究、帶補充
+
+## 如何將功能拆開來，模組化? 可重複使用?
+待研究~
+拆成三個主要部分
+1. ThreeRenderer.vue （負責建立 renderer 和 mount canvas）
