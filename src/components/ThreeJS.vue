@@ -1,18 +1,20 @@
 <script setup>
-import * as THREE from 'three'
-import { onMounted, onBeforeUnmount, ref } from 'vue'
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'; //test作用：讓你可以用滑鼠拖曳、滾輪縮放來控制相機繞著目標旋轉和平移。
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'; //test 作用：用來載入 .gltf 或 .glb 格式的 3D 模型。
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 import wallImg from '@/assets/wall.jpg';
 
 const container = ref(null); // DOM元素有標記 ref="container"
-let renderer, cube
+let renderer, cube, controls;
 
-// 場景 + 相機
-const scene = new THREE.Scene()
+// 場警 + 相機
+const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  700
+  75,  // 視角
+  window.innerWidth / window.innerHeight, // 長寬比
+  0.1, // 近剪裁面，相機多近前開始渲染，這個距離內物體不顯示
+  700 // 遠剪裁面，相機最遠能看到多遠，超過這距離物體不顯示
 )
 camera.position.z = 3
 
@@ -20,6 +22,9 @@ function init() {
   renderer = new THREE.WebGLRenderer({ antialias: true })
   renderer.setSize(window.innerWidth, window.innerHeight)
   container.value.appendChild(renderer.domElement)
+
+  // 控制器，讓你用滑鼠操作視角
+  controls = new OrbitControls(camera, renderer.domElement);
 
   // 貼圖
   const loader = new THREE.TextureLoader()
