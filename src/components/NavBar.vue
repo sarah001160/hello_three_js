@@ -2,7 +2,7 @@
   <div class="menu-wrapper">
     <ul>
       <li>
-        <router-link to="/about" class="no-underline link">about</router-link>
+        <router-link to="/line" class="no-underline link">畫線</router-link>
       </li>
       <li>
         <router-link to="/" class="no-underline link">Home</router-link>
