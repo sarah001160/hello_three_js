@@ -1,7 +1,7 @@
 <script setup>
-import { onMounted, ref } from 'vue'
-import * as THREE from 'three'
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+import { onMounted, ref } from 'vue';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'; //test 作用：讓你可以用滑鼠拖曳、滾輪縮放來控制相機繞著目標旋轉和平移。
 
 const container = ref(null)
 let renderer, scene, camera, controls
