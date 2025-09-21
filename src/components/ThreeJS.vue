@@ -38,6 +38,41 @@ function init() {
   cube = new THREE.Mesh(geometry, material)
   scene.add(cube)
 
+  // --- 新增 GLB 模型載入 ---
+  const gltfLoader = new GLTFLoader();
+
+  gltfLoader.load(
+    '/models/untitled.glb', // <-- 改成你放置的 glb 路徑
+    // untitle.glb 是blender猴子模型，輸出前有做file設定，可成功顯示在three.js專案
+    (gltf) => {
+      const model = gltf.scene;
+
+      // 調整大小 / 位置 / 旋轉
+      model.scale.set(1, 1, 1);
+      model.position.set(0,0, 0);
+
+      scene.add(model);
+    
+    },
+    (xhr) => {
+      console.log(`GLB 載入進度: ${(xhr.loaded / xhr.total * 100).toFixed(1)}%`);
+    },
+    (error) => {
+      console.error('GLB 載入失敗', error);
+    }
+  );
+
+  //test
+  const hemi = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
+  scene.add(hemi);
+
+  const dir = new THREE.DirectionalLight(0xffffff, 1);
+  dir.position.set(5, 10, 7);
+  scene.add(dir);
+
+  //---
+
+
   // 開始動畫
   renderer.setAnimationLoop(animate)
 
