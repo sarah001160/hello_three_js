@@ -42,14 +42,14 @@ function init() {
   const gltfLoader = new GLTFLoader();
 
   gltfLoader.load(
-    '/models/untitled.glb', // <-- 改成你放置的 glb 路徑
-    // untitle.glb 是blender猴子模型，輸出前有做file設定，可成功顯示在three.js專案
+    '/models/customModel.glb', // <-- 改成你放置的 glb 路徑
+    // '/models/customModel.glb', // untitle.glb 是blender猴子模型，輸出前有做file設定，可成功顯示在three.js專案
     (gltf) => {
       const model = gltf.scene;
 
       // 調整大小 / 位置 / 旋轉
-      model.scale.set(1, 1, 1);
-      model.position.set(0,0, 0);
+      model.scale.set(0.09, 0.1, 0.1); //  model.scale.set(厚度,高度,整個zoom縮放度)
+      model.position.set(0.02, 0.09, 0); //  model.position.set(左右,上下,前後)
 
       scene.add(model);
     
