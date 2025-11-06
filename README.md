@@ -50,3 +50,10 @@ my-threejs-project/
 待研究~
 拆成三個主要部分
 1. ThreeRenderer.vue （負責建立 renderer 和 mount canvas）
+
+
+## vite建構
+vite建構vue
+安裝THREE.js
+安裝sass (dart.sass vite、vue使用這版)
+`npm install -D sass`
